@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contrato de Aluguel Online</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Contrato de Aluguel</h1>
+        <form id="contratoForm">
+            <div class="input-group">
+                <label for="proprietario">Nome do Proprietário:</label>
+                <input type="text" id="proprietario" placeholder="Digite o nome do proprietário" required>
+            </div>
+            <div class="input-group">
+                <label for="cpfProprietario">CPF do Proprietário:</label>
+                <input type="text" id="cpfProprietario" placeholder="Digite o CPF do proprietário" required>
+            </div>
+            <div class="input-group">
+                <label for="rgProprietario">RG do Proprietário:</label>
+                <input type="text" id="rgProprietario" placeholder="Digite o RG do proprietário" required>
+            </div>
+            <div class="input-group">
+                <label for="inquilino">Nome do Inquilino:</label>
+                <input type="text" id="inquilino" placeholder="Digite o nome do inquilino" required>
+            </div>
+            <div class="input-group">
+                <label for="cpfInquilino">CPF do Inquilino:</label>
+                <input type="text" id="cpfInquilino" placeholder="Digite o CPF do inquilino" required>
+            </div>
+            <div class="input-group">
+                <label for="rgInquilino">RG do Inquilino:</label>
+                <input type="text" id="rgInquilino" placeholder="Digite o RG do inquilino" required>
+            </div>
+            <div class="input-group">
+                <label for="endereco">Endereço do Imóvel:</label>
+                <input type="text" id="endereco" placeholder="Digite o endereço do imóvel" required>
+            </div>
+            <div class="input-group">
+                <label for="cidade">Cidade do Imóvel:</label>
+                <input type="text" id="cidade" placeholder="Digite a cidade do imóvel" required>
+            </div>
+            <div class="input-group">
+                <label for="valorAluguel">Valor do Aluguel (R$):</label>
+                <input type="number" id="valorAluguel" placeholder="Digite o valor do aluguel" required>
+            </div>
+            <div class="input-group">
+                <label for="prazoContrato">Prazo do Contrato (meses):</label>
+                <input type="number" id="prazoContrato" placeholder="Digite o prazo do contrato" required>
+            </div>
+            <div class="input-group">
+                <label for="dataInicio">Data de Início:</label>
+                <input type="date" id="dataInicio" required>
+            </div>
+            <div class="input-group">
+                <label for="diaVencimento">Dia do Vencimento:</label>
+                <input type="number" id="diaVencimento" placeholder="Dia do vencimento (1-31)" min="1" max="31" required>
+            </div>
+            <button type="submit">Gerar Contrato</button>
+        </form>
+
+        <div id="contratoGerado" class="contrato">
+            <div id="contratoConteudo">
+                <h2>CONTRATO DE LOCAÇÃO RESIDENCIAL</h2>
+                <p>
+                    <strong>LOCADOR (Proprietário):</strong> <span id="nomeProprietario"></span><br>
+                    <strong>CPF:</strong> <span id="cpfProprietarioContrato"></span>
+                    <strong>RG:</strong> <span id="rgProprietarioContrato"></span><br><br>
+                    <strong>LOCATÁRIO (Inquilino):</strong> <span id="nomeInquilino"></span><br>
+                    <strong>CPF:</strong> <span id="cpfInquilinoContrato"></span>
+                    <strong>RG:</strong> <span id="rgInquilinoContrato"></span><br><br>
+                    Pelo presente instrumento particular, as partes acima identificadas celebram o presente CONTRATO DE LOCAÇÃO RESIDENCIAL, que se regerá pelas cláusulas e condições a seguir:
+                </p>
+                <h3>CLÁUSULA PRIMEIRA - DO OBJETO</h3>
+                <p>
+                    O locador cede ao locatário, para uso como residência, o imóvel situado à <span id="enderecoImovel"></span>, na cidade de <span id="cidadeImovel"></span>, pelo prazo de <span id="prazoContratoTexto"></span> meses, a partir de <span id="dataInicioContrato"></span>.
+                </p>
+                <h3>CLÁUSULA SEGUNDA - DO VALOR DO ALUGUEL</h3>
+                <p>
+                    O aluguel será no valor de R$ <span id="valorAluguelContrato"></span>, a ser pago mensalmente até o dia <span id="diaVencimentoContrato"></span> de cada mês.
+                </p>
+                <h3>CLÁUSULA TERCEIRA - DAS OBRIGAÇÕES</h3>
+                <p>
+                    O locatário se compromete a manter o imóvel em perfeito estado de conservação, devendo devolvê-lo ao locador nas mesmas condições em que o recebeu.
+                </p>
+                <h3>CLÁUSULA QUARTA - DA RESCISÃO</h3>
+                <p>
+                    Em caso de descumprimento das cláusulas deste contrato, o locador poderá rescindir o contrato, retomando a posse do imóvel.
+                </p>
+                <p>
+                    Para firmeza e como prova de assim haverem justo e contratado, as partes assinam o presente contrato em duas vias de igual teor.
+                </p>
+                <p>
+                    <span id="cidadeContrato"></span>, <span id="dataContrato"></span>.
+                </p>
+                <div class="assinaturas">
+                    <div>
+                        <strong>Locador:</strong><br>
+                        ___________________________<br>
+                        <span id="assinaturaProprietario"></span>
+                    </div>
+                    <div>
+                        <strong>Locatário:</strong><br>
+                        ___________________________<br>
+                        <span id="assinaturaInquilino"></span>
+                    </div>
+                </div>
+            </div>
+            <button id="downloadPDF" class="download-btn">Baixar Contrato em PDF</button>
+        </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
