@@ -4,7 +4,7 @@ Este projeto é uma aplicação Web que permite a geração de contratos de form
 
  <!-- [🔗 Acesse a página do Projeto aqui.](https://robsferreira.github.io/contratonline) -->
 
- 🔗<a href='https://robsferreira.github.io/contratonline/' target="_blank">Acesse a página do Projeto aqui.</a>
+ 🔗<a href="https://robsferreira.github.io/contratonline/" target="_blank">Acesse a página do Projeto aqui.</a>
 
 ---
 
